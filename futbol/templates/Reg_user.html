@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <style>
+        header{
+            background-color: #1a237e;
+            overflow: hidden;
+        }
+        header h1{
+            text-align: center;
+            /*Color de las columnas*/
+            color: #ffffff;
+            font-size: 1.0em;
+        }
+        header h2{
+            text-align: center;
+            color: #ffffff;
+            padding: 0.5em;
+            /* Tamaño de la letra*/
+            font-size: 1.0em;
+        }
+        header img{
+            width: 5%;
+            height: 7%;
+            position: absolute;
+            top: 0;
+            left: 15px;
+            border: 2px solid #ffffff;
+        }
+        nav{
+            background-color: #1a237e;;
+            min-height: 2em;
+            padding: 1.5em;
+            border: 2px solid #ffffff;
+        }
+        /* Para realizar la lista horizontal*/
+        nav li{
+            display: inline;
+            padding: 0.2em;
+        }
+        /* Para los vinculos de las listas */
+        nav a{
+            padding: 0.7em;
+            color: white;
+            background-color: #1a237e;
+            /* Margen a fuera tendrá */
+            margin: 0.9;
+            /*Elimina el subrayado del vinculo*/
+            text-decoration: none;
+            cursor: pointer;
+        }
+        nav a:hover{
+            color: black;
+            background-color: white;
+            border-radius: 120% 50%;
+            box-shadow: 2px 2px 2px 2px blue;
+        }
+        .container {
+            background-color: aqua;
+            width: 450px;
+            box-shadow: 3px 3px 3px 3px black;
+        }
+        label{
+            font-size: 18px;
+            text-shadow: 2px 2px 2px black;
+            font-family: monospace;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-group {
+            display: block;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        input{
+            font-size: 18px;
+            text-align: justify;
+            font-family: monospace;
+            box-shadow: 3px 3px 3px 3px blue;
+            border-radius: 20px;
+            align-items: center;
+            margin-bottom: 0;
+        }
+        #id_group{
+            color: white;
+            box-shadow: 3px 3px 3px 3px black;
+            background-color: darkcyan;
+        }
+        #id_group:focus{
+            color: black;
+            background-color: #b2dfdb;
+        }
+        .btn-primary{
+            width: 32%;
+            height: 20%;
+            font-family: cursive;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 10px;
+            border-radius: 1.5em;
+            color: white;
+            text-shadow: 2px 2px 2px black;
+            box-shadow: 2px 2px 2px 2px black;
+            background-color: darkcyan;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .btn-primary:hover{
+            color: darkblue;
+            background-color: white;
+        }
+        footer{
+                /* Elimina el proceso y lo pasa como en blanco fuera de todo el proceso*/
+                clear: both;
+                background-color: #020339;
+                padding: 2.em;
+            }
+            footer h2{
+                text-align: center;
+                color: #ffffff;
+            }
+            footer span{
+                display: block;
+                text-align: center;
+                color: #ffffff;
+            }
+            footer a {
+                display: block;
+                text-align: center;
+                color: #e1ff00; 
+                text-decoration: none; /* Elimina el subrayado del enlace si lo deseas */
+            }
+</style>
+</head>
+<body>
+    <header>
+        <h1>
+            TODO DEPORTES
+        </h1>
+        <h2> PROGRAMACIÓN III </h2>
+        <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaD2zO3UmC0EeePCWRwh-j3eZd9GbRawj3z8kkWpt31YD4JpIumV_xduSjCVeTewJm3lPFcb8eNJYMFaoGz_bzsaNZ9D2g=w1358-h646">
+    </header>
+    <!-- Nacegación en nuestra página-->
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}" id="a">🏠 Inicio</a></li>
+            <li><a href="{% url 'add_equi' %}"id="b" >🆕 Añadir Equipo</a></li>
+            <li><a href="{% url 'add_jug' %}"id="c" >⚽ Añadir Jugagor</a></li>
+            <li><a href="{% url 'add_notic' %}"id="d" >📝 Reportar Noticia</a></li>
+            <li><a href="{% url 'logout' %}"id="e" >🔐 Cerrar sesión</a></li>
+          </ul>
+        </ul>
+    </nav>
+        <h1 style="text-align: center;">Registro de Usuario</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}">Nombre de usuario:
+                </label>
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">Correo electrónico:
+                </label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.pasword1.id_for_label }}">Contraseña:
+                </label>
+                {{ form.password1 }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.password2.id_for_label }}">Confirmar Contraseña:
+                </label>
+                {{ form.password2 }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.group.id_for_label }}">Rol:
+                </label>
+                {{ form.group }}
+            </div>
+            <input type="submit" class="btn btn-primary" value="Registrar">
+        </form>
+    </div>
+    <footer>
+        <h2> Pie de página</h2>
+        <span> Información del creador </span>
+        <a href="smts029022@ugb.edu.sv"> <strong>Comunicate conmigo</strong> </a>
+    </footer> 
+</body>
+</html>

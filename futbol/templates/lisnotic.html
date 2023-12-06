@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        main {
+            flex: 1;
+        }
+        footer {
+            background-color: #1a237e;
+            color: white;
+            width: 100%;
+            padding: 20px 0; /* Adjust the padding as needed */
+        }
+        button{
+            width: 20%;
+            height: 60%;
+            font-style:italic;
+            font-family: cursive;
+            font-size: 15px;
+            border-radius: 1.5em;
+            text-shadow: 2px 2px 2px black;
+            box-shadow: 2px 2px 2px 2px black;
+            color: white;
+            background-color: blue;
+            cursor: pointer;
+            margin-left: 10%;
+            margin-top: 10px;
+        }
+        /*
+            Cuando se acerque se cambiará de color
+            con la utilización de hover.
+        */
+        button:hover{
+            color: black;
+            background-color: white;
+        }
+        /*
+            Se mantiene el márgen entre el título 
+            y el botón.
+        */
+        button:last-child {
+            margin-right: 0;
+        }
+        /*
+            Configuramos la tabla de médicos ingresados
+            le asignamos un borde y un márgen espaciado del
+            botón.
+        */
+        table{
+            border: 3px solid black;
+            margin-top: 10px;
+            margin-left: 10%;
+            width: 70%;
+            margin-bottom: 200px;
+        }
+
+        /*
+            Se utiliza la etiqueta caption para el título de la tabla.
+        */
+        caption{
+            font-size: 15px;
+            border: 4px solid black;
+            background-color: darkviolet;
+            color: white;
+            font-family: monospace;
+            text-align: center;
+        }
+        /*
+            Aqui referenciamos los campos de nuestras tablas
+            tanto los encabezados que su letra es de color blanco
+            y el color de la celda es darkviolet y el borde de color black.
+        */
+        tr,td,th{
+            border: 3px solid black;
+            border-color: black;
+        }
+        td {
+       
+            background-color: darkviolet;
+            color: white;
+            font-family: monospace;
+            text-align: center;
+        }
+        /*
+            Para las filas se les da un color de fondo lightblue
+            y si letra de color black. 
+        */
+        tr {
+            background-color: lightblue;
+            text-align: center;
+            color: black;
+            font-style: italic;
+            border-color: 3px black;
+        }
+        /*
+            Se cambia de color a las celdas de los datos 
+            obtenidos de nuestra base de datos.
+        */
+        td {
+            background-color: white;
+            color: black;
+            padding: 5px;
+            border-color: black;
+        }
+        li{
+          cursor: pointer; 
+        }
+        #a:hover{
+          color: black;
+          background-color: white;
+          border-radius: 120% 50%;
+          box-shadow: 2px 2px 2px 2px blue;
+        }
+        #b:hover{
+          color: black;
+          border-radius: 120% 50%;
+          background-color: white;
+        }
+        #c:hover{
+          color: black;
+          border-radius: 120% 50%;
+          background-color: white;
+        }
+        #d:hover{
+          color: black;
+          border-radius: 120% 50%;
+          background-color: white;
+        }
+        #e:hover{
+          color: black;
+          border-radius: 120% 50%;
+          background-color: white;
+        }
+        #g:hover{
+          color: black;
+          border-radius: 200%;
+          text-shadow: 2px 2px 2px 2px black;
+          background-color: white;
+          border: 5px solid white;
+        }
+        #j:hover{
+          color: black;
+          border-radius: 200%;
+          text-shadow: 2px 2px 2px 2px black;
+          background-color: white;
+          border: 5px solid white;
+        }
+      </style>
+</head>
+<body>
+              <!-- Parte de la navegación de los li -->
+  <div class="container">
+    <nav class="row nav-container">
+      <div class="nav-wrapper" style="background-color: #1a237e; ">
+        <a href="#" class="brand-logo"><img class="Golnet A" src="https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaD2zO3UmC0EeePCWRwh-j3eZd9GbRawj3z8kkWpt31YD4JpIumV_xduSjCVeTewJm3lPFcb8eNJYMFaoGz_bzsaNZ9D2g=w1358-h646" width="65" height="65"></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="{% url 'home' %}" id="a">🏠 Inicio</a></li>
+          <li><a href="{% url 'add_equi' %}"id="b" >🆕 Añadir Equipo</a></li>
+          <li><a href="{% url 'add_jug' %}"id="c" >⚽ Añadir Jugagor</a></li>
+          <li><a href="{% url 'add_notic' %}"id="d" >📝 Reportar Noticia</a></li>
+          <li><a href="{% url 'logout' %}"id="e" >🔐 Cerrar sesión</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  
+  <!-- CUERPO DE TABLA -->
+  <div class="container">
+    <h1 style="text-align: center;">Lista De Noticias</h1>
+    <a href="{% url 'add_notic' %}"><button>Agregar Noticia</button></a>
+    <table>
+        <thead>
+            <tr>
+                <caption>Tabla de Noticias</caption>
+                <th>id</th>
+                <th>resultado</th>
+                <th>encuentros</th>
+                <th>analisis</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for noticia in lisnotic %}
+            <tr>
+                <td>{{ noticia.id }}</td>
+                <td>{{ noticia.resultado }}</td>
+                <td>{{ noticia.encuentros }}</td>
+                <td>{{ noticia.analisis }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+  <!-- fOOTER -->
+  <div class="container">
+    <!-- Instanciación para el footer  -->
+ <footer class="page-footer" style="background-color: #1a237e;">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Todo Deportes 2023 </h5>
+          <p class="grey-text text-lighten-4">Bienvenidos a nuestra página web.</p>
+          <h6>Apis Creadas</h6>
+          <ul>
+            <li><a id="g" href="{% url 'api_view1' %}">API 1</a></li>
+            <li><a id="j" href="{% url 'api_view2' %}">AP 2</a></li>
+            <li><a id="j" href="{% url 'api_view3' %}">API 3</a></li>
+          </ul>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Que Deseas</h5>
+          <ul>
+            <li><a id="g" href="url 'registro' %}">Registrarte</a></li>
+            <li><a id="j" href="{% url 'login' %}">Iniciar Sesión</a></li>
+            <li><a id="j" href="{% url 'home' %}">Inicio</a></li>
+            <li><a id="j" href="{% url 'equipos' %}">Equipos</a></li>
+            <li><a id="j" href="{% url 'jugadores' %}">Jugadores</a></li>
+            <li><a id="j" href="{% url 'noticias' %}">Noticas</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      © 2023 Universidad Gerardo Barrios
+      <a class="grey-text text-lighten-4 right">{{ user.username }}</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

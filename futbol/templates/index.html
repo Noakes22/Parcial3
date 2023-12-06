@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicando Parcial</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+      .card-image{
+        width: 100%;
+        transition: transform 0.3s ease;
+      }
+      .card-image:hover{
+        transform: scale(1.2);
+      }
+      .responsive-img{
+        border-radius: 50%;
+      }
+      li{
+        cursor: pointer; 
+      }
+      #a:hover{
+        color: black;
+        background-color: white;
+        border-radius: 120% 50%;
+        box-shadow: 2px 2px 2px 2px blue;
+      }
+      #b:hover{
+        color: black;
+        border-radius: 120% 50%;
+        background-color: white;
+      }
+      #c:hover{
+        color: black;
+        border-radius: 120% 50%;
+        background-color: white;
+      }
+      #d:hover{
+        color: black;
+        border-radius: 120% 50%;
+        background-color: white;
+      }
+      #e:hover{
+        color: black;
+        border-radius: 120% 50%;
+        background-color: white;
+      }
+      #g:hover{
+        color: black;
+        border-radius: 200%;
+        text-shadow: 2px 2px 2px 2px black;
+        background-color: white;
+        border: 5px solid white;
+      }
+      #j:hover{
+        color: black;
+        border-radius: 200%;
+        text-shadow: 2px 2px 2px 2px black;
+        background-color: white;
+        border: 5px solid white;
+      }
+    </style>
+</head>
+<body>
+  
+  <!-- Parte de la navegación de los li -->
+  <div class="container">
+    <nav class="row nav-container">
+      <div class="nav-wrapper" style="background-color: #1a237e; ">
+        <a href="#" class="brand-logo"><img class="Golnet A" src="https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaD2zO3UmC0EeePCWRwh-j3eZd9GbRawj3z8kkWpt31YD4JpIumV_xduSjCVeTewJm3lPFcb8eNJYMFaoGz_bzsaNZ9D2g=w1358-h646" width="65" height="65"></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="{% url 'home' %}" id="a">🏠 Inicio</a></li>
+          <li><a href="{% url 'add_equi' %}"id="b" >🆕 Añadir Equipo</a></li>
+          <li><a href="{% url 'add_jug' %}"id="c" >⚽ Añadir Jugagor</a></li>
+          <li><a href="{% url 'add_notic' %}"id="d" >📝 Reportar Noticia</a></li>
+          <li><a href="{% url 'logout' %}"id="e" >🔐 Cerrar sesión</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+      <!-- Div que almacena el cards de la imágenes, para la amplitud del div-->
+      <div class="container">
+      <div class="row teal lighten-5">
+        <div class="col s12 m7">
+          <div class="card" style="width: 100%;">
+            <div class="card-image">
+              <div class="row">
+                <div class="col s3">
+                  <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/79aa37e1-a283-4a3f-9fc2-6dd96c718c5e/calzado-de-f%C3%BAtbol-de-corte-high-para-terreno-firme-phantom-gx-elite-qC22Bz.png" class="responsive-img">
+                </div>
+                <div class="col s3">
+                  <img src="https://m.media-amazon.com/images/I/81+9lnaT9AL._AC_UF894,1000_QL80_.jpg" class="responsive-img">
+                </div>
+                <div class="col s3">
+                  <img src="https://tvazteca.brightspotcdn.com/dims4/default/e233b0b/2147483647/strip/true/crop/629x547+0+0/resize/928x807!/format/jpg/quality/80/?url=http%3A%2F%2Ftv-azteca-brightspot.s3.amazonaws.com%2Fae%2F28%2Ff34e37dee124a6cd5acf790d90ae%2F65301.jpg" class="responsive-img">
+                </div>
+                <div class="col s3">
+                  <img src="https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt12dbddde5342ce4c/648866ff21a8556da61fa167/GOAL_-_Blank_WEB_-_Facebook_-_2023-06-13T135350.847.png?auto=webp&format=pjpg&width=3840&quality=60" class="responsive-img">
+                </div>
+              </div>
+              <!-- Le aplicamos un estilo y centrar el texto del card dentro de la primera imagen-->
+            </div>
+            <!--Es el párrafo dentro del card -->
+            <div class="card-content">
+              <p>Tu Destino Definitivo para la Pasión del Fútbol ⚽🥅</p>
+            </div>
+          </div>
+        </div>
+        <!-- Primero se coloca el párrafo al lado izquierdo para enlazar el div -->
+        <div class="card-content">
+            <h3>Introducción:</h3>
+                <p>En el universo digital, el fútbol no es simplemente un deporte; es una pasión compartida por millones de aficionados en todo el mundo...</p>
+        </div>
+      </div>
+      <!--Se implementa el div, en el segundo card y se le colocan las imágenes -->
+      <div class="row teal lighten-5">
+        <div class="col s12 m5">
+            <div class="card-content">
+              <!--Mostramos el nombre del usuario.-->
+                <h2>{{ user.username }}</h2>
+                <ol>
+                    <p>Comunidad Apasionada:</strong> GolNet no es solo un sitio informativo; es una comunidad vibrante de aficionados al fútbol...</p>
+                </ol>
+            </div>
+        </div>
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="card-image">
+              <div class="row">
+                <div class="col s3">
+                  <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaBxXow4Qtcygy_iyPIfThREOKLZql0avlCwcV3SzE8OlHMlf8UqgHMinW9680ChC2QVpJ4kXBGMNZS_nj8L73t1WBL7=w1358-h646" class="responsive-img">
+                </div>
+                <div class="col s3">
+                  <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaAcusZ1xUkAkCxumtX6Cg-0fyIl_Gc4l9hsw6tr9Y_GDvpZBMAdMxllqqemDcKgxQokBEb0AsHzJEzkzD9srAMYvu_qdQ=w1358-h646" class="responsive-img">
+                </div>
+                <div class="col s3">
+                  <img src="https://scontent.fsal7-1.fna.fbcdn.net/v/t39.30808-6/316425123_508357871324722_1297968156410386975_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=L6bG_Dyir3IAX8UT1Nx&_nc_ht=scontent.fsal7-1.fna&oh=00_AfBJBw1Te4YdGs0KnqxvZgwe1CRepP41GIopkxDg5MbHGg&oe=6572A98B" class="responsive-img">
+                </div>
+                <div class="col s3">
+                  <img src="https://imagenes.elpais.com/resizer/O-P1_nDSxvDwly_pMXMB2Gt0db8=/1200x0/cloudfront-eu-central-1.images.arcpublishing.com/prisa/GAY3JRC2BVBQFHLSXNPAUQILZQ.JPG" class="responsive-img">
+                </div>
+              </div>
+              <span style="font-family: Arial; font-size: 15px;" class="card-title"></span>
+            </div>
+            <div class="card-content">
+              <p>Los 2 mejores jugadores del  mundo 👍💯</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Se le configura los datos especificos al grade -->
+      <ul class="collection">
+        <li class="collection-item avatar">
+          <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaDy03PY3F0k_lZKOc2mwgnmB1ASDGimByT6T7VJGm27spvPFNcdpetqyq-Q5fK_1zn-LZaGA28QtC6z1DVpZr_IKEVvzg=w1358-h646" class="circle">
+          <span class="title">----------------------------------------------------------------------------------------------------------------------------</span>
+          <p>Noticias de Última Hora:<br>
+            GolNet se enorgullece de ofrecer noticias frescas y relevantes sobre los eventos más recientes en el mundo del fútbol...
+          </p>
+          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaAlY6UthSA648JJ2IfZ_hifRiBQ5bNcIMfN1qFkQOxyQ02tzAaTivNgUwdrp9hMA40LWreMYZXtdrCHPMeYQQmhdGjuxw=w1358-h646" class="circle">
+          <span class="title">----------------------------------------------------------------------------------------------------------------------------</span>
+          <p> Análisis Profundo: <br>
+            Sumérgete en un análisis detallado de los partidos, estrategias y jugadores destacados...
+          </p>
+          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaBAHpk9nmuryfrt8278dEvrp67Ra-0Ygi6VrU98iGNmPimKSascoL0HrsKJkSRNEkJlXSkc5bFkbQzZ6Jl1d1GnhAxalA=w1358-h646" alt="" class="circle">
+          <span class="title">----------------------------------------------------------------------------------------------------------------------------</span>
+          <p>Estadísticas y Datos Exclusivos:<br>
+            ¿Te preguntas quién es el máximo goleador de la temporada o cuántos pases clave ha realizado tu mediocampista estrella?...
+          </p>
+          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+        </li>
+      </ul>
+      
+      <!-- Instanciación para el footer  -->
+      <footer class="page-footer" style="background-color: #1a237e;">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Todo Deportes 2023 </h5>
+              <p class="grey-text text-lighten-4">Bienvenidos a nuestra página web.</p>
+              <h6>Apis Creadas</h6>
+              <ul>
+                <li><a id="g" href="{% url 'api_view1' %}">API 1</a></li>
+                <li><a id="j" href="{% url 'api_view2' %}">AP 2</a></li>
+                <li><a id="j" href="{% url 'api_view3' %}">API 3</a></li>
+              </ul>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">Que Deseas</h5>
+              <ul>
+                <li><a id="g" href="{% url 'registro' %}">Registrarte</a></li>
+                <li><a id="j" href="{% url 'login' %}">Iniciar Sesión</a></li>
+                <li><a id="j" href="{% url 'home' %}">Inicio</a></li>
+                <li><a id="j" href="{% url 'equipos' %}">Equipos</a></li>
+                <li><a id="j" href="{% url 'jugadores' %}">Jugadores</a></li>
+                <li><a id="j" href="{% url 'noticias' %}">Noticas</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2023 Universidad Gerardo Barrios
+          <a class="grey-text text-lighten-4 right">{{ user.username }}</a>
+          </div>
+        </div>
+      </footer>
+</body>
+</html>

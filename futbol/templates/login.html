@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+    li{
+          cursor: pointer; 
+        }
+        #a:hover{
+          color: black;
+          background-color: white;
+          border-radius: 120% 50%;
+          box-shadow: 2px 2px 2px 2px blue;
+        }
+        #b:hover{
+          color: black;
+          border-radius: 120% 50%;
+          background-color: white;
+        }
+        #c:hover{
+          color: black;
+          border-radius: 120% 50%;
+          background-color: white;
+        }
+        #d:hover{
+          color: black;
+          border-radius: 120% 50%;
+          background-color: white;
+        }
+        #e:hover{
+          color: black;
+          border-radius: 120% 50%;
+          background-color: white;
+        }
+        #g:hover{
+          color: black;
+          border-radius: 200%;
+          text-shadow: 2px 2px 2px 2px black;
+          background-color: white;
+          border: 5px solid white;
+        }
+        #j:hover{
+          color: black;
+          border-radius: 200%;
+          text-shadow: 2px 2px 2px 2px black;
+          background-color: white;
+          border: 5px solid white;
+        }
+        label{
+            color: black;
+            font-family: monospace;
+            font-style: italic;
+            font-size: 15px;
+        }
+        #id_username{
+            width: 280px;
+            background-color:white;
+            box-shadow: 2px 2px 2px 2px black;
+            text-align: justify;
+            font-family: monospace;
+        }
+        #id_password{
+            width: 280px;
+            background-color:white;
+            box-shadow: 2px 2px 2px 2px black;
+            text-align: justify;
+            font-family: monospace;
+        }
+        button{
+            width: 50%;
+            height: 20%;
+            font-family: cursive;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 10px;
+            border-radius: 1.5em;
+            color: white;
+            text-shadow: 2px 2px 2px black;
+            box-shadow: 2px 2px 2px 2px black;
+            background-color: blue;
+            cursor: pointer;
+            margin-bottom: 150px;
+        }
+        button:hover{
+            color: black;
+            box-shadow: 2px 2px 2px 2px black;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+<!-- Parte de la navegación de los li -->
+  <div class="container">
+    <nav class="row nav-container">
+      <div class="nav-wrapper" style="background-color: #1a237e; ">
+        <a href="#" class="brand-logo"><img class="Golnet A" src="https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaD2zO3UmC0EeePCWRwh-j3eZd9GbRawj3z8kkWpt31YD4JpIumV_xduSjCVeTewJm3lPFcb8eNJYMFaoGz_bzsaNZ9D2g=w1358-h646" width="65" height="65"></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="{% url 'home' %}" id="a">🏠 Inicio</a></li>
+          <li><a href="{% url 'add_equi' %}"id="b" >🆕 Añadir Equipo</a></li>
+          <li><a href="{% url 'add_jug' %}"id="c" >⚽ Añadir Jugagor</a></li>
+          <li><a href="{% url 'add_notic' %}"id="d" >📝 Reportar Noticia</a></li>
+          <li><a href="{% url 'logout' %}"id="e" >🔐 Cerrar sesión</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+    <div class="container">
+         <!-- Login para el ingreso del usuario-->
+        <div class="container">
+            <h1>Login De Usuario</h1>
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Iniciar sesión</button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+    <!-- Instanciación para el footer  -->
+     <footer class="page-footer" style="background-color: #1a237e;">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Todo Deportes 2023 </h5>
+              <p class="grey-text text-lighten-4">Bienvenidos a nuestra página web.</p>
+              <h6>Apis Creadas</h6>
+              <ul>
+                <li><a id="g" href="{% url 'api_view1' %}">API 1</a></li>
+                <li><a id="j" href="{% url 'api_view2' %}">AP 2</a></li>
+                <li><a id="j" href="{% url 'api_view3' %}">API 3</a></li>
+              </ul>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">Que Deseas</h5>
+              <ul>
+                <li><a id="g" href="{% url 'registro' %}">Registrarte</a></li>
+                <li><a id="j" href="{% url 'login' %}">Iniciar Sesión</a></li>
+                <li><a id="j" href="{% url 'home' %}">Inicio</a></li>
+                <li><a id="j" href="{% url 'equipos' %}">Equipos</a></li>
+                <li><a id="j" href="{% url 'jugadores' %}">Jugadores</a></li>
+                <li><a id="j" href="{% url 'noticias' %}">Noticas</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2023 Universidad Gerardo Barrios
+          <a class="grey-text text-lighten-4 right">{{ user.username }}</a>
+          </div>
+        </div>
+      </footer>
+</body>
+</html>

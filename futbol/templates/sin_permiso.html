@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Denegado</title>
+    <style>
+        body{
+            background-color: aquamarine;
+        }
+        .container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1{
+            font-size: 42px;
+            font-family: monospace;
+            font-style: italic;
+            text-shadow: 2px 2px black;
+            background-color: blue;
+            color: white;
+            text-align: center;
+            box-shadow: 2px 2px 2px 2px white;
+            margin-bottom: 15%;
+        }
+        img{
+            border-radius: 40%;
+            box-shadow: 2px 2px 2px blue;
+            transition: transform 0.3s ease;
+            margin-bottom: 15%;
+        }
+        img:hover{
+            transform: scale(2.1);
+        }
+        .ref{
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> REVISADO EN EL VAR </h1>
+        <a class="ref" href="{% url 'home' %}">
+            <img  src="https://i.pinimg.com/236x/a5/06/44/a506448f69ca1f1f6454d4bf50f4238d.jpg">
+        </a>
+    </div> 
+</body>
+</html>
